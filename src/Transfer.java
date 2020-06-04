@@ -1,7 +1,6 @@
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Transfer implements Runnable {
-	
 	private final ReentrantLock lock = new ReentrantLock();
 	private Account source;
 	private Account destination;
@@ -24,5 +23,4 @@ public class Transfer implements Runnable {
 			lock.unlock();
 		}
 	}
-
 }

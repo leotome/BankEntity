@@ -12,6 +12,16 @@ public class Bank {
 	public ArrayList<Account> getAccounts(){
 		return this.accounts;
 	}
+	
+	public Account getAccountById(long Id) {
+		Account account = null;
+		for(Account a : this.getAccounts()) {
+			if(a.getId() == Id) {
+				account = a;
+			}
+		}
+		return account;
+	}
 
 	public void createAccount(double initialBalance) {
 		Account account = new Account(initialBalance);	//Create account with Id = formatted and a provided initial balance
