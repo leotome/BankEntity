@@ -1,14 +1,32 @@
+import java.util.Scanner;
+
 public class Program {
 	public static void main(String[] args) {
 		Bank bank = new Bank();
 		
-
+		Scanner in = new Scanner(System.in);
+		System.out.println("== BANK ENTITY SIMULATOR ==");
+		System.out.print("Amount of accounts to be created (n) = ");
+		Integer noOfAccounts = Integer.parseInt(in.nextLine());
+		System.out.print("Initial balance for each account (a) = ");
+		double amountBalance = Double.valueOf(in.nextLine());
+		in.close();
 		
-		for(int i = 1; i < 31; i++) {
-			double baseValue = 50.00;
-			bank.createAccount(baseValue + (baseValue * i/100));
+		for(Integer i = 1; i <= noOfAccounts; i++) {
+			bank.createAccount(amountBalance);
 		}
-
+		
+		
+		/*	O PROFESSOR RESPONDEU QUE AS SEGUINTES INFORMAÇÕES DEVEM SER
+		    GERADAS AUTOMATICAMENTE PELO PROGRAMA:
+			- quantidade de transferências //TODO
+			- valor da transferência 	   //TODO
+			- conta origem                 //TODO
+			- conta destino                //TODO
+		*/
+		
+		
+		
 		System.out.println("== ANTES DAS TRANSFERÊNCIAS ==");
 		for(Account a : bank.getAccounts()) {
 			System.out.println(a.toString());	
