@@ -18,6 +18,7 @@ public class Transfer implements Runnable {
 			if(this.source.getBalance() >= this.amount) {
 				this.source.setBalance(this.source.getBalance() - amount);
 				this.destination.setBalance(this.destination.getBalance() + amount);
+				System.out.println("€" + this.amount + " was sucessfully transfered from " + this.source.getId() + " to " + this.destination.getId());
 			}
 		} finally {
 			lock.unlock();

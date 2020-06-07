@@ -8,11 +8,11 @@ public class Account {
 	//Account Balance
 	private double balance;
 	
-	public Account(double initialBalance) {
+	public Account(double InitialBalance) {
 		//Increment and get and Id
 		this.Id = atomicInteger.incrementAndGet();
 		//Set Initial Balance
-		this.balance = initialBalance;
+		this.balance = InitialBalance;
 	}
 	
 	public long getId() {
