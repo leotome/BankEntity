@@ -46,9 +46,9 @@ public class Program {
 			System.out.println("+++ DESTINATION ACCOUNT +++");
 			Account destination = bank.getRandomAccount();
 			System.out.println(destination.toString());
-			double transactionAmount = new BigDecimal((random.nextDouble() * 100.0)).setScale(2, RoundingMode.HALF_EVEN).doubleValue();			
+			double transactionAmount = new BigDecimal((random.nextDouble() * 150.0)).setScale(2, RoundingMode.HALF_EVEN).doubleValue();			
 			System.out.println("+++ TRANSACTION AMOUNT = "+transactionAmount+" +++");
-			bank.doTransfer(source, destination, transactionAmount);
+			bank.requestTransfer(source, destination, transactionAmount);
 		}
 		
 		

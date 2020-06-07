@@ -35,9 +35,9 @@ public class Bank {
 		return account;
 	}
 	
-	public void doTransfer(Account source, Account destination, double amount) {
+	public void requestTransfer(Account source, Account destination, double amount) {
 		Transfer transfer = new Transfer();
-		transfer.setParameters(source, destination, amount);
+		transfer.setParams(source, destination, amount);
 		transfer.run();
 	}
 	
