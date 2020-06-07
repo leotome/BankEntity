@@ -23,13 +23,16 @@ public class Transfer implements Runnable{
 				this.source.setBalance(this.source.getBalance() - amount);
 				this.destination.setBalance(this.destination.getBalance() + amount);
 				System.out.println("€" + this.amount + " was sucessfully transfered from " + this.source.getId() + " to " + this.destination.getId());
-				this.condition.signal();
+				this.condition.signalAll();
 			} else {
+				System.out.println("Transaction denied. Insufficient balance on " + this.source.getId() + ". (" + this.source.getId() + "-" + this.destination.getId() + "-" + this.amount + ")");				
+			}
+				/*
 				System.out.println("Transaction denied. Insufficient balance on " + this.source.getId() + ". Waiting for sufficient amount. (" + this.source.getId() + "-" + this.destination.getId() + "-" + this.amount + ")");
 				this.condition.await();
 			}			
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			e.printStackTrace();*/
 		} finally {
 			lock.unlock();
 		}

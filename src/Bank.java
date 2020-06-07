@@ -38,7 +38,11 @@ public class Bank {
 	public void requestTransfer(Account source, Account destination, double amount) {
 		Transfer transfer = new Transfer();
 		transfer.setParams(source, destination, amount);
-		transfer.run();
+        new Thread(new Runnable() {
+			public void run() {
+				transfer.run();
+			}
+        }).start();
 	}
 	
 }

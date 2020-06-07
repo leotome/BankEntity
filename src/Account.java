@@ -28,7 +28,7 @@ public class Account {
 	}
 	
 	public String toString() {
-		String result = "Id = " + this.Id + "\n" + "Balance = €" + this.getBalance();
+		String result = "[Id = " + this.Id + ", " + "Balance = €" + this.getBalance() + "]";
 		return result;
 	}
 }
