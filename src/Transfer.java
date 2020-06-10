@@ -28,7 +28,7 @@ public class Transfer implements Runnable{
 					this.condition.signalAll();
 					break;
 				} else {
-					//If balance is not enough, wait until 
+					//If balance is not enough, wait until the source has enough balance
 					System.out.println("Transaction denied. Insufficient balance on " + this.source.getId() + ". (" + this.source.getId() + "-" + this.destination.getId() + "-" + this.amount + ")");				
 					this.condition.await();
 				}			
