@@ -36,26 +36,17 @@ public class Program {
 		
 
 		Random random = new Random();
-		Integer transactions = random.nextInt(noOfAccounts)*10;		
-		//Integer transactions = random.nextInt(random.nextInt(noOfAccounts));
 		
-		//try(PrintStream out = new PrintStream(new FileOutputStream("Grupo4_TransactionsRequested.csv"))){
-			//out.println("SourceId,DestinationId,Amount");
-			for(Integer t = 1; t<=transactions; t++) {
-				System.out.println("+++ SOURCE ACCOUNT +++");
-				Account source = bank.getRandomAccount();
-				System.out.println(source.toString());
-				System.out.println("+++ DESTINATION ACCOUNT +++");
-				Account destination = bank.getRandomAccount();
-				System.out.println(destination.toString());
-				double transactionAmount = new BigDecimal((random.nextDouble() * 150.0)).setScale(2, RoundingMode.HALF_EVEN).doubleValue();			
-				System.out.println("+++ TRANSACTION AMOUNT = "+transactionAmount+" +++");
-				//out.println(source.getId() + "," + destination.getId() + "," + transactionAmount);
-				bank.requestTransfer(source, destination, transactionAmount);
-			}
-		//	out.close();
-		//}
-		
+		for(Integer t = 0; t<bank.getAccounts().size()-2; t++) {
+			//Get t account, set as "source"
+			Account source = bank.getAccounts().get(t);
+			//Get t+2 account, set as "destination"
+			Account destination = bank.getAccounts().get(t+2);
+			//Generate the random transaction amount
+			double transactionAmount = new BigDecimal((random.nextDouble() * (int) source.getBalance() )).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
+			//Request transfer for bank controller
+			bank.requestTransfer(source, destination, transactionAmount);
+		}		
 		
 		//Dumps account information to a *.csv, so we can compare with the status before transactions
 		try(PrintStream out = new PrintStream(new FileOutputStream("Grupo4_AfterTransactions.csv"))){
