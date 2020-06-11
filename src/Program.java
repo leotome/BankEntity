@@ -15,14 +15,14 @@ public class Program {
 		Scanner in = new Scanner(System.in);
 		System.out.println("===== BANK ENTITY SIMULATOR =====");
 		System.out.print("Amount of accounts to be created (n) = ");
-		Integer noOfAccounts = Integer.parseInt(in.nextLine());
-		System.out.print("Initial balance for each account (a) = ");
-		double amountBalance = Double.valueOf(in.nextLine());
+		Integer n = Integer.parseInt(in.nextLine());
+		System.out.print("Initial balance for each account (s) = ");
+		double s = Double.valueOf(in.nextLine());
 		in.close();
 		
 		//Creates the number of accounts from given input, with initial balance
-		for(Integer i = 1; i <= noOfAccounts; i++) {
-			bank.createAccount(amountBalance);
+		for(Integer i = 1; i <= n; i++) {
+			bank.createAccount(s);
 		}
 		
 		//Dumps recently created accounts to a *.csv
